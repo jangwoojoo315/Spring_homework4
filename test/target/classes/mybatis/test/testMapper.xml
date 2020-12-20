@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.example.test.mapper.TestMapper"> 
+<select id="selectTest" resultType="TestVO"> 
+	SELECT * from requestinfo
+</select> 
+<select id="getLoginCountByMonth" resultType="MonthDateVO">
+	SELECT DATE_FORMAT(createDate,'%Y-%m') createtime, count(*) as count
+	FROM requestinfo GROUP BY createtime;
+</select>
+<select id="getLoginCountByDate" resultType="MonthDateVO">
+	SELECT DATE_FORMAT(createDate,'%Y-%m-%d') createtime, count(*) as count 
+	FROM requestinfo GROUP BY createtime;
+</select>
+</mapper>
+
+
